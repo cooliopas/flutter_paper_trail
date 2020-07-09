@@ -111,6 +111,12 @@ class FlutterPaperTrailPlugin : MethodCallHandler {
             return
         }
 
+        val system = arguments["system"] as String?
+        if (system == null) {
+            result.error("missing arguments", "", null)
+            return
+        }
+        
         val hostName = arguments["hostName"] as String?
         if (hostName == null) {
             result.error("missing arguments", "", null)
@@ -150,7 +156,7 @@ class FlutterPaperTrailPlugin : MethodCallHandler {
         }
 
         _treeBuilder = PapertrailTree.Builder()
-                .system(safeMachineName)
+                .system(system)
                 .program(_programName!!)
                 .logger(_programName!!)
                 .host(hostName)

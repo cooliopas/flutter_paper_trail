@@ -96,6 +96,10 @@ public class SwiftFlutterPaperTrailPlugin: NSObject, FlutterPlugin {
             return
         }
         
+        guard let system = params["system"] else {
+            result(FlutterError(code: "Missing arguments", message: "Missing system", details: nil))
+            return
+        }
         guard let hostName = params["hostName"] else {
             result(FlutterError(code: "Missing arguments", message: "Missing hostName", details: nil))
             return
@@ -119,6 +123,7 @@ public class SwiftFlutterPaperTrailPlugin: NSObject, FlutterPlugin {
         }
         
         let paperTrailLogger = RMPaperTrailLogger.sharedInstance()!
+        paperTrailLogger.system = system
         paperTrailLogger.host = hostName
         paperTrailLogger.port = port
         
