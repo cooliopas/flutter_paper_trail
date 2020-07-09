@@ -123,7 +123,6 @@ public class SwiftFlutterPaperTrailPlugin: NSObject, FlutterPlugin {
         }
         
         let paperTrailLogger = RMPaperTrailLogger.sharedInstance()!
-        paperTrailLogger.system = system
         paperTrailLogger.host = hostName
         paperTrailLogger.port = port
         
