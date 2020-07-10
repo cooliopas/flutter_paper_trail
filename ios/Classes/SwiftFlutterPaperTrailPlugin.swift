@@ -55,7 +55,7 @@ public class SwiftFlutterPaperTrailPlugin: NSObject, FlutterPlugin {
             return
         }
         let paperTrailLogger = RMPaperTrailLogger.sharedInstance()!
-        paperTrailLogger.programName = userId + "--on--" + SwiftFlutterPaperTrailPlugin.programName!
+        paperTrailLogger.programName = userId
         result("Logger updated")
     }
     
@@ -129,6 +129,10 @@ public class SwiftFlutterPaperTrailPlugin: NSObject, FlutterPlugin {
         SwiftFlutterPaperTrailPlugin.programName = programNameParam
         paperTrailLogger.programName = SwiftFlutterPaperTrailPlugin.programName
         paperTrailLogger.machineName = machineName
+        // paperTrailLogger.syslogRFCType
+        paperTrailLogger.syslogRFCType = RMSyslogRFCType3164;
+        paperTrailLogger.syslogRFCType = RMSyslogRFCType3164;
+
         DDLog.add(paperTrailLogger)
         
         result("Logger initialized")
